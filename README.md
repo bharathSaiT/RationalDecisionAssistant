@@ -26,8 +26,3 @@ It aims to present a clearer and more refined version of your decision-making pr
 
 - Light/dark mode toggle
 
-
-## Appendix
-
-Any additional information goes here
-
