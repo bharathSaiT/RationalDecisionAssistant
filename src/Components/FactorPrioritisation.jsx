@@ -1,36 +1,41 @@
-import { Card, Slider } from "@mui/material";
+import { useState } from "react";
+import FactorWeightageCard from "./FactorWeightageCard";
+import { useRecoilState, useRecoilValue } from "recoil";
+import factorsState from "../recoil/atoms/factorsState";
 
 
 function FactorPrioritisation(){
+  
+    const factors = useRecoilValue(factorsState);
+    
     return(
         <>
          hello from factor prioritisation
-         <div style={{
-            display:"flex",
-            flexDirection:"row",
-            flexWrap:"wrap",
-            alignItems:"center",
-            justifyContent:"space-around",
-            alignContent:"center"
-         }}>
-                <div style={{
-                    flex: "0 0 calc(30% - 10px)",
-                    margin: "5px"
+         
+            <div style={{
+                    display:"flex",
+                    flexDirection:"row",
+                    flexWrap:"wrap",
+                    alignItems:"center",
+                    justifyContent:"space-around",
+                    alignContent:"center"
+
                 }}>
-                        <Slider id ="2"
-                    disabled={false}
-                    marks
-                    max={10}
-                    min={0}
-                    size="small"
-                    valueLabelDisplay="on"
-                ></Slider>
+                {factors.map((factor,index) => {
+                    return (
+                        <FactorWeightageCard 
+                    factor={factor}></FactorWeightageCard>
+                    )
+                })}
+                        
                 </div>
-         </div>
+
+            
          
         </>
     )
 
 }
+
 
 export default FactorPrioritisation;
