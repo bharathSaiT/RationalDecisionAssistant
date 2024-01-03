@@ -1,6 +1,6 @@
 import { Box, Container ,Grid, IconButton, Stepper, Typography ,Step ,StepButton } from "@mui/material";
 import { useState } from "react";
-import ChoicesAndFactors from "./ChoicesAndFactors/ChoicesAndFactors";
+import ChoicesAndFactors from "./ChoicesAndFactors";
 import FactorPrioritisation from "./FactorPrioritisation";
 
 const steps =["step1 " , "step 2" ,"step 3","step 4"];
