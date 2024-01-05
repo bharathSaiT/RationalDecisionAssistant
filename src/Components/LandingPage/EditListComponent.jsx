@@ -2,8 +2,8 @@ import { AddCircleRounded, DeleteRounded } from "@mui/icons-material";
 import { IconButton, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
-import factorsState from "../recoil/atoms/factorsState";
-import choicesState from "../recoil/atoms/choicesState";
+import factorsState from "../../recoil/atoms/factorsState";
+import choicesState from "../../recoil/atoms/choicesState";
 import { v4 as uuidv4 } from 'uuid';
 
 function EditListComponent({title, choices}){

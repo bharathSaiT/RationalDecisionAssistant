@@ -1,7 +1,9 @@
 import { Box, Container ,Grid, IconButton, Stepper, Typography ,Step ,StepButton } from "@mui/material";
 import { useState } from "react";
-import ChoicesAndFactors from "./ChoicesAndFactors";
-import FactorPrioritisation from "./FactorPrioritisation";
+import ChoicesAndFactors from "./LandingPage/ChoicesAndFactors";
+import FactorPrioritisation from "./FactorWeightage/FactorPrioritisation";
+import ChoiceCurator from "./ChoiceWeightage/ChoiceCurator";
+import Decision from "./Decision";
 
 const steps =["step1 " , "step 2" ,"step 3","step 4"];
 
@@ -12,9 +14,9 @@ function getStepContent(step){
         case 1 :
             return <>< FactorPrioritisation/></>
         case 2 :
-            return <>factors weightage in choices</>
+            return <><ChoiceCurator></ChoiceCurator></>
         case 3 :
-            return <>results</>
+            return <><Decision/></>
     }
 
 
