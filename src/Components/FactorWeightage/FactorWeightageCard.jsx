@@ -1,7 +1,7 @@
 import { Card, Paper, Slider, Typography } from "@mui/material";
 import { useRecoilState } from "recoil";
 import { useState } from "react";
-import factorsState from "../recoil/atoms/factorsState";
+import factorsState from "../../recoil/atoms/factorsState";
 
 function FactorWeightageCard({ factor }){
 
@@ -27,8 +27,6 @@ function FactorWeightageCard({ factor }){
 	];
 
     function handleSliderChange(){
-        console.log(sliderWeight, " dadssd");
-        console.log(factors);
         const newArray = factors.map(element => {
            return element.name === factor.name ? {... element ,"weight": sliderWeight} : element;
         })
@@ -58,7 +56,7 @@ function FactorWeightageCard({ factor }){
                                     marks={sliderMarks}
                                     max={100}
                                     min={-100}
-                                    size="small"
+                                    size="large"
                                     value={sliderWeight}
                                     valueLabelDisplay="off"
                                     onChange={(e)=>{

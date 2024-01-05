@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FactorWeightageCard from "./FactorWeightageCard";
 import { useRecoilState, useRecoilValue } from "recoil";
-import factorsState from "../recoil/atoms/factorsState";
+import factorsState from "../../recoil/atoms/factorsState";
 
 
 function FactorPrioritisation(){
@@ -10,7 +10,6 @@ function FactorPrioritisation(){
     
     return(
         <>
-         hello from factor prioritisation
          
             <div style={{
                     display:"flex",
@@ -26,12 +25,8 @@ function FactorPrioritisation(){
                         <FactorWeightageCard 
                     factor={factor}></FactorWeightageCard>
                     )
-                })}
-                        
-                </div>
-
-            
-         
+                })}                      
+            </div>
         </>
     )
 
