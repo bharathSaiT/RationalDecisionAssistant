@@ -5,6 +5,7 @@ import factorWeightState from "../recoil/atoms/factorWeightState";
 import { useEffect } from "react";
 import choicesWithWeights from "../recoil/selectors/ChoicesWithWeights";
 import { BarChart } from "@mui/x-charts";
+import { Typography, Paper } from "@mui/material";
 
 
 function Decision(){
@@ -13,33 +14,38 @@ function Decision(){
     function scaleNumber(input, inMin, inMax, outMin, outMax) {
         return ((input - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin;
     }
-
-
-
     return (
         <>
-            <div>
+            <div style={{
+                display:"flex",
+                flexDirection:"column",
+                flexWrap:"wrap",
+                alignItems:"center",
+                gap:"15px"
+            }}>
                 {
                 choices.map((choice)=>{
                     console.log(choice);
                     return(
-                        <>
-                            <div>
-                             {choice.name}
-                                <div>
-                                {choice.weight}
-                                </div>
+                        <Paper elevation={24}>
+                                <div style={{
+                                display:"flex",
+                                flexDirection:"row",
+                                alignItems:"center",
+                                gap:"50px"
+                            }}>
+                                <Typography>
+                                        {choice.name}
+                                    </Typography>
+                                    <Typography>
+                                        {choice.weight}
+                                    </Typography>  
                             </div>
-                            <br></br>
-                        </>
-                        
-                       
-                        
-                    )
-                })
-            }
+                        </Paper>                        
+                        )
+                    })
+                    }
             <BarGraph/>
-            
             </div>
         </>
     )
@@ -55,8 +61,8 @@ function BarGraph(){
           }
           
         ],
-        width: 500,
-        height: 400,
+        width: 800,
+        height: 500,
       };
 
     return(

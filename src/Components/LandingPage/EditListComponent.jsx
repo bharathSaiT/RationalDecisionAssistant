@@ -23,9 +23,18 @@ function EditListComponent({title, choices}){
         console.log(newData);
     }
 
-    function handleDeletion(value , index){
+    function handleDeletion(value){
         const newData = data.filter( item => item!== value);
         setdata(newData);
+    }
+
+    function handleUpdation(value,name){
+        const newArray = data.map((element)=>{
+            return(
+                element.id === value.id ? {...element , name: name}: element
+            )
+        })
+        setdata(newArray);
     }
 
     return(
@@ -71,7 +80,9 @@ function EditListComponent({title, choices}){
                                 
                             }}>
                                 <TextField id="filled-basic" label="New Entry" variant="filled" size="large"
-                                style={{ flex: 1 }} value={entry.name} />
+                                style={{ flex: 1 }} value={entry.name} onChange={(e)=>{
+                                    handleUpdation(entry,e.target.value);
+                                }}/>
 
                                 <IconButton onClick={()=>{
                                     handleDeletion(entry ,index);
