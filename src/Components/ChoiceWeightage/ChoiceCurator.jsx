@@ -14,7 +14,6 @@ function ChoiceCurator(){
                 justifyContent: "space-around",
                 alignContent:"center",
                 alignItems:"center"
-                
             }}>
                 
                 {
