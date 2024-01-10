@@ -2,6 +2,9 @@ import { selector } from "recoil";
 import factorsState from "../atoms/factorsState";
 import choicesState from "../atoms/choicesState";
 import factorWeightState from "../atoms/factorWeightState";
+import { recoilPersist } from 'recoil-persist'
+
+const { persistAtom } = recoilPersist()
 
 function scaleNumber(input, inMin, inMax, outMin, outMax) {
     return ((input - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin;
@@ -29,6 +32,7 @@ const choicesWithWeights = selector({
         return { ...choice, weight: scaledWeight };
       });
     },
+    effects_UNSTABLE: [persistAtom]
   });
 
   export default choicesWithWeights;
