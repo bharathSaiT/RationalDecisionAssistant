@@ -55,8 +55,7 @@ function RationalSteps(){
             <br></br>
             {getStepContent(activeStep)}
             <br></br>
-            {activeStep == steps.length-1 ? "completion": "in process"}
-            
+            {console.log(activeStep , steps.length)}
             </Box>
             
         </Container>

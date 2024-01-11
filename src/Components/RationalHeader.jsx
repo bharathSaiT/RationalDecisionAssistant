@@ -3,11 +3,10 @@ import { Box, Container ,Grid, IconButton, Stepper, Typography ,Step ,StepButton
 import { useState } from "react";
 
 
-function RationalHeader(){
-    const [darkMode ,setdarkMode] = useState("false");
+function RationalHeader({mode , toggle}){
 
     const toggleTheme= ()=>{
-        setdarkMode(prevState => !prevState);
+        toggle(!mode);
     }
 
     return(
@@ -18,12 +17,16 @@ function RationalHeader(){
                 flexDirection:"row",
                 flexWrap:"nowrap",
                 justifyContent:"space-between",
-                alignItems:"center"
+                alignItems:"center",
+                padding:"15px"
             }}>
-                <Typography> rational decision maker</Typography>
+                
+                <Typography component="div" > 
+                    <Box sx={{ typography: 'body1'}}>Rational Decision Assistant</Box>
+                </Typography>
                 <div>
                         <IconButton onClick={toggleTheme} aria-label="toggle-theme">
-                        {darkMode ? <DarkModeRounded /> : <LightModeRounded /> }
+                        {mode ? <DarkModeRounded /> : <LightModeRounded /> }
                         </IconButton>
                 </div>
             </div>
