@@ -39,9 +39,14 @@ function EditListComponent({title, choices}){
 
     return(
         <>
-            <div style={{ width: "50%", display: "flex", justifyContent: "center", alignItems: "center" 
-                    ,flexDirection:"column"}} >
-                <Typography component='span' variant='h4' style={{ marginBottom: "10px" }}>
+            <div style={{ width: "50%", 
+                display: "flex",
+                justifyContent: "center", 
+                alignItems: "center" ,
+                alignContent:"center",
+                flexDirection:"column",
+                flexWrap:"wrap"}} >
+                <Typography component='span' variant='h4' textAlign="center" style={{ marginBottom: "10px" }}>
                     {title}
                     </Typography>
                     <br/>

@@ -11,9 +11,6 @@ import { Typography, Paper } from "@mui/material";
 function Decision(){
 
     const [choices, setchoices] = useRecoilState(choicesWithWeights);
-    function scaleNumber(input, inMin, inMax, outMin, outMax) {
-        return ((input - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin;
-    }
     return (
         <>
             <div style={{
