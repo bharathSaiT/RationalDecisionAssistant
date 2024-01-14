@@ -67,23 +67,24 @@ function RationalSteps(){
             </Box>
             
             </Container>
-        <div id="bottomnavigation" style={{
-            display:"flex",
-            justifyContent:"center",
-            position: "fixed",
-            bottom: 0,
-            width: "100%",
-            padding:"25px"
-        }}>
-            <IconButton disabled={activeStep == 0 ? true :false} size="large"
-            onClick={()=>{Navigation(false)}} >
-                <ArrowBackIosNewIcon/>
-            </IconButton>
-            <IconButton disabled={activeStep == steps.length-1 ? true :false}  size="large"
-            onClick={()=>{Navigation(true)}}>
-                <ArrowForwardIosIcon/>
-            </IconButton>
-        </div>
+            <div id="bottomnavigation" style={{
+                display:"flex",
+                justifyContent:"space-between",
+                position: "fixed",
+                bottom: 0,
+                width: "100%",
+                padding:"25px",
+                zIndex: -1
+            }}>
+                <IconButton disabled={activeStep == 0 ? true :false} size="large"
+                onClick={()=>{Navigation(false)}} >
+                    <ArrowBackIosNewIcon/>
+                </IconButton>
+                <IconButton disabled={activeStep == steps.length-1 ? true :false}  size="large"
+                onClick={()=>{Navigation(true)}}>
+                    <ArrowForwardIosIcon/>
+                </IconButton>
+            </div>
         </>
         
     )
