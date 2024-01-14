@@ -14,7 +14,7 @@ function FactorCard ({factor}){
                 flexFlow:"column wrap",
                 justifyContent:"space-around",
                 alignItems:"center",
-                gap:"10px"
+                gap:"15px"
             }}>
                     <Typography variant="h5"> {factor.name}</Typography>
                     <div style={{

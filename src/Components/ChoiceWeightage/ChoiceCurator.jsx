@@ -13,7 +13,8 @@ function ChoiceCurator(){
                 flexFlow: "row wrap",
                 justifyContent: "space-around",
                 alignContent:"center",
-                alignItems:"center"
+                alignItems:"center",
+                gap:"15px"
             }}>
                 
                 {
