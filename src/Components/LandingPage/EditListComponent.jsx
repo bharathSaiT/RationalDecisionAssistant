@@ -16,6 +16,10 @@ function EditListComponent({title, choices}){
     function handleAddition(){
         // const newData = data;
         // newData.push(input); 
+        if (input.trim() === "") {
+            // Do not proceed if input is an empty string
+            return;
+        }
         const newData = [...data, { "id": uuidv4(), "name": input, "weight": initialWeight }];
         setdata(newData);
         setinput("");
@@ -29,6 +33,10 @@ function EditListComponent({title, choices}){
     }
 
     function handleUpdation(value,name){
+        if (name.trim() === "") {
+            // Do not proceed if input is an empty string
+            handleDeletion(value);
+        }
         const newArray = data.map((element)=>{
             return(
                 element.id === value.id ? {...element , name: name}: element

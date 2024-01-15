@@ -1,4 +1,4 @@
-import { Box, Container ,Grid, IconButton, Stepper, Typography ,Step ,StepButton } from "@mui/material";
+import { Box, Container ,Grid, IconButton, Stepper, Typography ,Step ,StepButton, Alert } from "@mui/material";
 import { useState } from "react";
 import ChoicesAndFactors from "./LandingPage/ChoicesAndFactors";
 import FactorPrioritisation from "./FactorWeightage/FactorPrioritisation";
@@ -6,8 +6,12 @@ import ChoiceCurator from "./ChoiceWeightage/ChoiceCurator";
 import Decision from "./Decision";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import { useRecoilState, useRecoilValue } from "recoil";
+import choicesState from "../recoil/atoms/choicesState";
+import factorsState from "../recoil/atoms/factorsState";
 
 const steps =["step1 " , "step 2" ,"step 3","step 4"];
+const alerts = ["There should be atleast two Choices!" , " There should be atleast 2 Factors!"]
 
 function getStepContent(step){
     switch(step){
@@ -27,6 +31,10 @@ function RationalSteps(){
     
     const [activeStep, setActiveStep] = useState(0);
     const [completed , setcompleted] = useState({});
+    const choices = useRecoilValue(choicesState);
+    const factors = useRecoilValue(factorsState);
+
+    const shouldDisplayAlert = choices.length < 2 || factors.length < 2;
 
     const handleStep = (index)=>{
         const newComp = completed;
@@ -55,7 +63,7 @@ function RationalSteps(){
                     <Step key={label}  completed={completed[index]}>
                         <StepButton color="inherit" onClick={()=>{
                             handleStep(index);
-                        }}>
+                        }} disabled={shouldDisplayAlert && (index === 1 || index === 2 || index === 3)} >
                         {label}
                         </StepButton>
                     </Step>
@@ -67,6 +75,24 @@ function RationalSteps(){
             </Box>
             
             </Container>
+            <div id="alert" style={{
+                display:"flex",
+                justifyContent:"center",
+                width: "100%",
+                padding:"25px",
+                zIndex: -2,
+                position: "fixed",
+                bottom: 100,
+            }}>
+                {
+                    shouldDisplayAlert && (
+                        <Alert variant="outlined" severity="warning">
+                            {alerts[choices.length > 1 ? 1 : 0]}
+                        </Alert>
+                    )
+                }
+            </div>
+            
             <div id="bottomnavigation" style={{
                 display:"flex",
                 justifyContent:"space-between",
@@ -80,11 +106,13 @@ function RationalSteps(){
                 onClick={()=>{Navigation(false)}} >
                     <ArrowBackIosNewIcon/>
                 </IconButton>
-                <IconButton disabled={activeStep == steps.length-1 ? true :false}  size="large"
+                <IconButton disabled={shouldDisplayAlert || (activeStep == steps.length-1 ? true :false)}  size="large"
                 onClick={()=>{Navigation(true)}}>
                     <ArrowForwardIosIcon/>
                 </IconButton>
+                
             </div>
+            
         </>
         
     )
