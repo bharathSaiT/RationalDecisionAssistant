@@ -1,5 +1,5 @@
 import { AddCircleRounded, DeleteRounded } from "@mui/icons-material";
-import { IconButton, TextField, Typography } from "@mui/material";
+import { IconButton, TextField, Typography , Tooltip} from "@mui/material";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import factorsState from "../../recoil/atoms/factorsState";
@@ -67,10 +67,13 @@ function EditListComponent({title, choices}){
                         padding:"5px"
                         
                     }}>
-                        <TextField id="filled-basic" label="New Entry" variant="filled" size="large"
-                        style={{ flex: 1 }} value={input} onChange={(e)=>{
-                            setinput(e.target.value);
-                        }}/>
+                        <Tooltip title="Add New Entry" arrow>
+                            <TextField id="filled-basic" label="New Entry" variant="filled" size="large"
+                            style={{ flex: 1 }} value={input} onChange={(e)=>{
+                                setinput(e.target.value);
+                            }}/>
+                        </Tooltip>
+                        
 
                         <IconButton onClick={()=>{
                             handleAddition();
@@ -92,10 +95,13 @@ function EditListComponent({title, choices}){
                                 padding:"5px"
                                 
                             }}>
+                                <Tooltip title="Edit Entry" arrow>
                                 <TextField id="filled-basic" label="New Entry" variant="filled" size="large"
                                 style={{ flex: 1 }} value={entry.name} onChange={(e)=>{
                                     handleUpdation(entry,e.target.value);
                                 }}/>
+                                </Tooltip>
+                                
 
                                 <IconButton onClick={()=>{
                                     handleDeletion(entry ,index);
