@@ -10,7 +10,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import choicesState from "../recoil/atoms/choicesState";
 import factorsState from "../recoil/atoms/factorsState";
 
-const steps =["step1 " , "step 2" ,"step 3","step 4"];
+const steps =["Choices & Factors " , "Factors weightage" ,"Rate Choices ","Scores"];
 const alerts = ["There should be atleast two Choices!" , " There should be atleast 2 Factors!"]
 
 function getStepContent(step){
