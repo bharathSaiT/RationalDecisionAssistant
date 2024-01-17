@@ -2,6 +2,7 @@ import { useState } from "react";
 import FactorWeightageCard from "./FactorWeightageCard";
 import { useRecoilState, useRecoilValue } from "recoil";
 import factorsState from "../../recoil/atoms/factorsState";
+import { Typography } from "@mui/material";
 
 
 function FactorPrioritisation(){
@@ -10,6 +11,12 @@ function FactorPrioritisation(){
     
     return(
         <>
+        <div align="center" style={{ marginBottom: "15px" }}>
+            <Typography component='span' variant='h4' >
+                    Factors Weightage
+                    </Typography>
+        </div>
+        
          
             <div style={{
                     display:"flex",
