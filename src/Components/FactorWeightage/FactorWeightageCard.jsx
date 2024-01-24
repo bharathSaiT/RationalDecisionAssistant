@@ -10,19 +10,19 @@ function FactorWeightageCard({ factor }){
 
     const sliderMarks = [
 		{
-			value: -66.6,
-		},
-		{
-			value: -33.3,
-		},
-		{
-			value: 0,
-		},
-		{
 			value: 33.3,
 		},
 		{
 			value: 66.6,
+		},
+		{
+			value: 100,
+		},
+		{
+			value: 133.3,
+		},
+		{
+			value: 166.6,
 		},
 	];
 
@@ -54,8 +54,8 @@ function FactorWeightageCard({ factor }){
                                     disabled={false}
                                     track={false}
                                     marks={sliderMarks}
-                                    max={100}
-                                    min={-100}
+                                    max={200}
+                                    min={1}
                                     size="large"
                                     value={sliderWeight}
                                     valueLabelDisplay="off"
@@ -83,19 +83,19 @@ function FactorWeightageCard({ factor }){
 const getWeightInfoText = (weight) => {
 
     switch (true) {
-        case weight < -66:
-            return `😭`;
-        case weight < -33:
-            return `😢`;
-        case weight < -6:
-            return `🙁`;
-        case weight < 6:
-            return `😶`;
         case weight < 33:
-            return `🙂`;
+            return `😭`;
         case weight < 66:
+            return `😢`;
+        case weight < 90:
+            return `🙁`;
+        case weight < 106:
+            return `😶`;
+        case weight < 133:
+            return `🙂`;
+        case weight < 166:
             return `😊`;
-        case weight <= 100:
+        case weight <= 200:
             return "😃";
         default:
             return '';
