@@ -11,7 +11,7 @@ function EditListComponent({title, choices}){
     const [data, setdata] = useRecoilState(choices ? choicesState : factorsState);
 
     const [input ,setinput ]= useState(" ");
-    const initialWeight = 0;
+    const initialWeight = 1;
 
     function handleAddition(){
         // const newData = data;
