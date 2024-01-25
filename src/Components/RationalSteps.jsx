@@ -1,4 +1,4 @@
-import { Box, Container ,Grid, IconButton, Stepper, Typography ,Step ,StepButton, Alert } from "@mui/material";
+import { Box, Container ,Grid, IconButton, Stepper, Typography ,Step ,StepButton, Alert, Link } from "@mui/material";
 import { useState } from "react";
 import ChoicesAndFactors from "./LandingPage/ChoicesAndFactors";
 import FactorPrioritisation from "./FactorWeightage/FactorPrioritisation";
@@ -50,7 +50,7 @@ function RationalSteps(){
 
     return(
         <>
-            <Container maxWidth= "xl" id="body" >
+            <Container maxWidth= "xl" id="body" style={{ maxHeight: "calc(100vh - 140px)", overflowY: "auto" }}>
             {/* //when the criteria of adding atleast 2 of each decisions & factors 
             //is met , we have to make this stepper non-linear 
             //completet first step after clicking on next page
@@ -69,9 +69,9 @@ function RationalSteps(){
                     </Step>
                 ))}
             </Stepper>
-  
-                {getStepContent(activeStep)}
-                {console.log(activeStep , steps.length)}
+            <div>
+            {getStepContent(activeStep)}
+            </div>
             </Box>
             
             </Container>
@@ -92,10 +92,30 @@ function RationalSteps(){
                     )
                 }
             </div>
+            <div style={{
+                position: "fixed",
+                bottom:20,
+                left: "50%",
+                transform: "translateX(-50%)",
+                textAlign: "center",
+                zIndex: +2
+            }}>
+                <Typography variant="body2">
+                    Made with ❤️ by {' '}
+        <Link href="https://www.linkedin.com/in/bharath-sai-tannidi/" target="_blank" rel="noopener noreferrer">
+            Bharath
+        </Link>
+                </Typography>
+                <Typography variant="body2">
+                    <a href="https://github.com/bharathSaiT/RationalDecisionAssistant" target="_blank" rel="noopener noreferrer">
+                        GitHub Repository
+                    </a>
+                </Typography>
+            </div>
             
             <div id="bottomnavigation" style={{
                 display:"flex",
-                justifyContent:"space-between",
+                justifyContent:"space-around",
                 position: "fixed",
                 bottom: 0,
                 width: "100%",
